@@ -9,7 +9,7 @@ import random
 import os
 
 # IF YOU USE "python3", REPLACE THIS LINE WITH "python3"
-p = "python3"
+p = "python"
 
 t = tester(p=p, script="script2a.py")
 tic = int(time.time()*1000)
