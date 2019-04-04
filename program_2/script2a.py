@@ -1,8 +1,8 @@
 import sys
 # Import `anagram` here
 
-INVALID_NUM_ARGS_ERROR = "At least two arguments not provided"
-INVALID_NUM_ERROR = "Invalid number provided"
+INVALID_ARGUMENTS = "Invalid arguments provided"
+FILE_NOT_FOUND = "File not found"
 
 def your_main_program(args):
     # Call your methods from here, using the
