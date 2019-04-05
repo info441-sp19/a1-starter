@@ -105,14 +105,14 @@ class tester:
         if student_output == expected_val:
             return (True, True)
         expected, got = ("","")
-        split_student_output = student_output.split("\n")
-        split_expected_val = expected_val.split("\n")
+        split_student_output = student_output.strip().split("\n")
+        split_expected_val = expected_val.strip().split("\n")
         for idx, line in enumerate(split_expected_val):
             if split_student_output[idx] != line:
                 expected = line
                 got = split_student_output[idx]
-                break
-        return (expected, got)
+                return (expected, got)
+        return (True, True)
 
     def try_except_output(self, expect_in, cmd_args):
         def return_func():
