@@ -118,7 +118,7 @@ class tester:
         def return_func():
             expect = expect_in
             try:
-                output = subprocess.check_output([self.p, self.script, *cmd_args], text=True, stderr=subprocess.STDOUT)
+                output = subprocess.check_output([self.p, self.script, *cmd_args], universal_newlines=True, stderr=subprocess.STDOUT)
                 expected, got = self.expect_output(output, expect)
                 if expected == True and got == True:
                     return True
@@ -131,7 +131,7 @@ class tester:
         def return_func():
             expect = expect_in
             try:
-                output = subprocess.check_output([self.p, self.script, *cmd_args], text=True, stderr=subprocess.STDOUT)
+                output = subprocess.check_output([self.p, self.script, *cmd_args], universal_newlines=True, stderr=subprocess.STDOUT)
                 return "Expected error '{exp}' but did not receive it".format(exp=expect)
             except subprocess.CalledProcessError as output:
                 expected, got = self.expect_output(output.output, expect)
@@ -171,7 +171,7 @@ if __name__ == "__main__":
 # misc code below
 """
 try:
-    a = subprocess.check_output(['python', 'script1.py', '1', 'a', 'raise'], text=True)
+    a = subprocess.check_output(['python', 'script1.py', '1', 'a', 'raise'], universal_newlines=True)
     # a = subprocess.check_output(["python3", "a.py"])
 except subprocess.CalledProcessError as exc:
     print("status: ", exc.output)
